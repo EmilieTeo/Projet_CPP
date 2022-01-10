@@ -6,7 +6,7 @@
 
 
 
-MyString::MyString() {
+string::string() {
     a_[0] = 'H';
     a_[1] = 'E';
     a_[2] = 'L';
@@ -14,7 +14,7 @@ MyString::MyString() {
     a_[4] = 'O';
 }
 
-char* MyString::geta(){
+char* string::geta(){
     return this -> a_;
 }
 
@@ -31,6 +31,6 @@ char* MyString::geta(){
 //}
 
 
-MyString::~MyString(){
+string::~string(){
 
 }

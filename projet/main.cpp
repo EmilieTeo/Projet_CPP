@@ -1,4 +1,5 @@
 # include <iostream>
+# include <string>
 # include "MyClass.h"
 
 
@@ -8,7 +9,7 @@ using std::endl;
 
 
 int main() {
-    MyString b;
+    string b;
     cout<< b.geta() <<endl;
 
     return 0;
