@@ -2,7 +2,15 @@
 // Created by emilie on 1/10/22.
 //
 
-#ifndef PROJET_MYCLASS_H
-#define PROJET_MYCLASS_H
+class MyString{
+    public :
+        MyString(); //default constructor
+        char* geta();
+        //MyClass (const char* a); //Constructor from a c-string
+        //MyClass(const MyClass &a); // copy constructor
+        ~MyString(); //destructor
 
-#endif //PROJET_MYCLASS_H
+    protected:
+        char a_[100];
+
+};

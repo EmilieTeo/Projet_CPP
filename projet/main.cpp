@@ -1,6 +1,16 @@
-#include <iostream>
+# include <iostream>
+# include "MyClass.h"
+
+
+
+using std::cout;
+using std::endl;
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    MyString b;
+    cout<< b.geta() <<endl;
+
     return 0;
 }
+
