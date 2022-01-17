@@ -7,7 +7,7 @@ class string{
         string(); //default constructor
         char* geta();
         //MyClass (const char* a); //Constructor from a c-string
-        //MyClass(const MyClass &a); // copy constructor
+        string(const string &a); // copy constructor
         ~string(); //destructor
 
     protected:

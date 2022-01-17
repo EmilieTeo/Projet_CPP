@@ -1,6 +1,5 @@
 # include <iostream>
-# include <string>
-# include "MyClass.h"
+# include "string.h"
 
 
 
@@ -11,6 +10,9 @@ using std::endl;
 int main() {
     string b;
     cout<< b.geta() <<endl;
+
+    std::string c (b.geta());
+    cout << c << endl;
 
     return 0;
 }
