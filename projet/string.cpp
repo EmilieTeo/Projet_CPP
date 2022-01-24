@@ -13,6 +13,7 @@ string::string() {
     a_[2] = 'L';
     a_[3] = 'L';
     a_[4] = 'O';
+    a_[5] = '\0';
 
 }
 
@@ -34,6 +35,7 @@ string::string(const string &a){
     a_[2]= a.a_[2];
     a_[3]= a.a_[3];
     a_[4]= a.a_[4];
+    a_[5] = a.a_[5];
 }
 
 
