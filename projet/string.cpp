@@ -3,87 +3,42 @@
 //
 
 #include "string.h"
-#include <cstring>
-#include <iostream>
-using std::cout;
-using std::endl;
 
-string::string(){
-  a=nullptr;
-}
-string::string(const char* str){
-  a = new char[10];
-  int i=0;
-  while (str[i]!='\0'){
-    i+=1;
-  }
-  int size=i;
-  memcpy(a,str, size);
-  this->a[size]='\0';
-}
 
+
+
+string::string() {
+    a_[0] = 'H';
+    a_[1] = 'E';
+    a_[2] = 'L';
+    a_[3] = 'L';
+    a_[4] = 'O';
+    a_[5] = '\0';
+
+}
 
 char* string::geta(){
-    return this -> a;
+    return this -> a_;
 }
+
+
+
+
+//MyClass::MyClass(string a){
+//    a_ = a;
+//}
+
+
+string::string(const string &a){
+    a_[0]= a.a_[0];
+    a_[1]= a.a_[1];
+    a_[2]= a.a_[2];
+    a_[3]= a.a_[3];
+    a_[4]= a.a_[4];
+    a_[5] = a.a_[5];
+}
+
 
 string::~string(){
-}
 
-int string::length(){
-  int len = 0;
-  int i =0;
-  while (this->a[i]!='\0'){
-    if(a[i]!=(char)0){
-      len = len+1;
-    i = i+1;
-    }
-  }
-  return len;
-}
-
-int string::maxsize(){
-  return sizeof(this->a);
-}
-
-char* string::resize(int size_t, char c){
-  int sizeinit = this->length();
-  cout<<sizeinit<<endl;
-  int i = 0;
-  if(size_t< sizeinit){
-    this->a[size_t]='\0';
-    }
-  else{
-    while (i<(size_t-sizeinit)){
-      this->a[i+sizeinit]= c;
-      std::cout<<this->a[sizeinit+i]<<std::endl;
-      std::cout << i+sizeinit << std::endl;
-      i++;
-    }
-    if (this->a[i+sizeinit]!= '\0'){
-      this->a[i+sizeinit]= '\0';
-      }
-  }
-  return this->a;
-
-}
-
-void string::operator=(const string& str){
-  int i =0;
-  while (i<str.length()){
-   this->a[i] = str.geta()[i];
-   i++;
- }
-}
-
-void string::operator=(const char* s){
-  int i =0;
-  while (i<sizeof(s)){
-   this->a[i] = s[i];
-   i++;
- }
-  if(a[i]!='\0'){
-    a[i]='\0';
-  }
-  cout<<i<<endl;
 }

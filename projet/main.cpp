@@ -27,5 +27,8 @@ int main() {
     e = d;
     cout<<e.geta()<<endl;
 
+    std::string c (b.geta());
+    cout << c << endl;
+
     return 0;
 }
