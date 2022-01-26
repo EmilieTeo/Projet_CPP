@@ -4,13 +4,45 @@
 
 class string{
     public :
-        string(); //default constructor
+
         char* geta();
-        //MyClass (const char* a); //Constructor from a c-string
-        string(const string &a); // copy constructor
-        ~string(); //destructor
+
+        //-------------
+        //Constructors
+        //-------------
+        string();                   //default constructor
+        string(const string& a);    //copy constructor
+        string(const char* a);      //Constructor from a c-string
+
+        //-----------
+        //Destructor
+        //-----------
+        ~string();
+
+        //--------
+        //Getters
+        //--------
+
+        //--------
+        //Setters
+        //--------
+
+        //--------
+        //Methods
+        //--------
+        bool empty() const;
+
+
+        //----------
+        //Operators
+        //----------
+
+
 
     protected:
+      //-----------
+      //Attributes
+      //-----------
         char a_[100];
 
 };

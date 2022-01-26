@@ -30,5 +30,10 @@ int main() {
     std::string c (b.geta());
     cout << c << endl;
 
+    //----------------
+    //Methods testing
+    //----------------
+    cout << "Is the string d empty ? " << d.empty() << endl;
+
     return 0;
 }
