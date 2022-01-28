@@ -51,10 +51,10 @@ char* string::resize(int size_t, char c){
   int sizeinit = this->length();
   cout << "Initial size : " << sizeinit << endl;
   int i = 0;
-  
+
   if(size_t< sizeinit){
     this->a[size_t]='\0';
-  
+
   } else {
 
     while (i<(size_t-sizeinit)){
@@ -78,7 +78,7 @@ void string::operator=(const string& str){
 //   string temp = str;
 //   int i = 0;
 //   int l = temp.length();
-  
+
 //   while (i<l) {
 //    char* lettre = temp.geta();
 //    this->a[i] = lettre[i];
@@ -99,4 +99,26 @@ void string::operator=(const char* s){
   }
 
   cout<<i<<endl;
+}
+
+//-----------
+//Destructor
+//-----------
+
+string::~string(){
+	delete [] a;
+}
+
+
+//--------
+//Methods
+//--------
+
+bool string::empty() const{   //empty(), test if string is empty
+	if (size()==0){
+	  return(true);
+	}
+	else {
+		return(false);
+	}
 }

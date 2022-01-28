@@ -48,11 +48,11 @@ int main() {
 
   e = d;
   displayStringCharacteristics(e, -1);
-  
+
   string c (d.geta());
   displayStringCharacteristics(c, -1);
 
+  cout << "Is the string d empty ? " << d.empty() << endl;
+
   return 0;
 }
-
-
