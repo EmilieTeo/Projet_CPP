@@ -8,10 +8,13 @@ class string{
 
     char* geta();
 
+
     string (const char* a); //Constructor from a c-string
-    //string(const string &a); // copy constructor
+    string(const string &str); // copy constructor
 
     ~string(); //destructor
+
+    const char* c_str();
 
     int length(); //fonction renvoyant la longueur de la chaîne
 
@@ -23,7 +26,7 @@ class string{
 
     void operator=(const char*);
 
-    ~string();
+    //~string();
 
 
     bool empty() const;
@@ -34,6 +37,7 @@ class string{
   protected:
     char a_[100]; // Tu l'utilises pas?
     char* a;
+    int len;
 
 
 };

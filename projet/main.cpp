@@ -52,7 +52,8 @@ int main() {
   string c (d.geta());
   displayStringCharacteristics(c, -1);
 
-  cout << "Is the string d empty ? " << d.empty() << endl;
+  //cout << "Is the string d empty ? " << d.empty() << endl;
+
 
   return 0;
 }

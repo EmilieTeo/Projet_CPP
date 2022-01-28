@@ -8,8 +8,20 @@
 using std::cout;
 using std::endl;
 
-string::string() {
+string::string() {      // Default Constructor
   a=nullptr;
+
+}
+
+
+string::string(const string &str){      //Copy constructor
+    len = str.len;
+    a = str.a;
+}
+
+
+const char* string::c_str(){        // c_str()
+    return a;
 }
 
 string::string(const char* str){
@@ -27,6 +39,7 @@ char* string::geta(){
   return this -> a;
 }
 
+
 string::~string(){}
 
 int string::length(){
@@ -34,10 +47,7 @@ int string::length(){
   int i = 0;
 
   while (this->a[i]!='\0'){ // != null
-    if(a[i]!=(char)0){ // Keskecé
-      len++;
-    }
-
+    len++;
     i++;
   }
   return len;
@@ -105,20 +115,20 @@ void string::operator=(const char* s){
 //Destructor
 //-----------
 
-string::~string(){
-	delete [] a;
-}
+//string::~string(){
+//	delete [] a;
+//}
 
 
 //--------
 //Methods
 //--------
 
-bool string::empty() const{   //empty(), test if string is empty
-	if (size()==0){
-	  return(true);
-	}
-	else {
-		return(false);
-	}
-}
+//bool string::empty() const{   //empty(), test if string is empty
+//	if (size()==0){
+//	  return(true);
+//	}
+//	else {
+//		return(false);
+//	}
+//}
