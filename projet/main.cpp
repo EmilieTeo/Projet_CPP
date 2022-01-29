@@ -6,25 +6,6 @@ using std::cout;
 using std::endl;
 
 /** Méthodes de test */
-void displayArray(char* array){
-  cout<<array<<endl;
-}
-
-void displayCharInArray(char* array){
-  int i = 0;
-  while (array[i] != '\0'){
-    cout<<i<<" : "<<array[i]<<endl;
-    i++;
-  }
-}
-
-void displayStringCharacteristics(string str, int resize){
-  cout << "String content : " << str.geta() << endl;
-  cout << "Size : " << str.length() << endl;
-  cout << "Maximum size : " << str.maxsize() << endl;
-  if (resize>0) cout << "Resize to " << resize << " : " << str.resize(resize,'Z') << endl;
-  cout << endl;
-}
 
 
 /** Main */
@@ -34,27 +15,21 @@ int main() {
   char r[] = {'S','a','l','u','t','\0'};
   char t[] = {"Bonjour"};
 
-  displayArray(t);
-  displayCharInArray(t);
-  cout << endl;
 
   string d (s);
   string e (r);
   string f (t);
+  string g (f);
 
-  cout<<"d :"<<endl;
-  displayStringCharacteristics(d, -1);
-  cout<<"e :"<<endl;
-  displayStringCharacteristics(e, 8);
-  cout<<"f :"<<endl;
-  displayStringCharacteristics(f, -1);
-
+  cout<<"d : " <<d.geta()<<endl;
   e = d;
-  cout<<"e :"<<endl;
-  displayStringCharacteristics(e, -1);
+  cout<<"e : " <<e.geta()<<endl;
+  cout << "g : "<<g.geta()<<endl;
 
-  string c (d.geta());
-  displayStringCharacteristics(c, -1);
+//  e = d+r;
+//  cout<<"e : " <<e.geta()<<endl;
+
+
 
 //  cout << "Is the string d empty ? " << d.empty() << endl;
 

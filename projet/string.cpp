@@ -5,11 +5,33 @@
 #include "string.h"
 #include <cstring>
 #include <iostream>
+#include <cstddef>
+
 using std::cout;
 using std::endl;
 
-string::string() {
+string::string() {      // Default Constructor
   a=nullptr;
+
+}
+
+
+string::string(const string &str){      //Copy constructor
+//    len = str.len;
+  delete a;
+  int i = 0;
+  size_t l = str.length();
+  a = new char[l];
+  while (i < l){
+    a[i] = str.a[i];
+    i++;
+  }
+  a[i] = '\0';
+}
+
+
+const char* string::c_str(){        // c_str()
+    return a;
 }
 
 string::string(const char* str){
@@ -32,7 +54,7 @@ char* string::geta(){
 //}
 
 
-int string::length(){
+size_t string::length() const{
   int len = 0;
   int i = 0;
 
@@ -42,6 +64,7 @@ int string::length(){
   }
   return len;
 }
+
 
 int string::maxsize(){
   return sizeof(this->a); // attention, sizeof(char* array) renvoie la taille de l'adresse de a, donc 4 octets
@@ -74,16 +97,21 @@ char* string::resize(int size_t, char c){
 
 }
 
-void string::operator=(const string& str){
-   string news = str;
+string& string::operator=(const string& str){
+//   delete a;
+//   string news = str;
    int i = 0;
-   int l = news.length();
-
-   while (i<l) {
-    char* lettre = news.geta();
-    this->a[i] = lettre[i];
+   size_t l = str.length();
+//   a = new char[l];
+   while (i<=l) {
+    char lettre = str.a[i];
+    a[i]= lettre;
     i++;
    }
+   if(a[i]!= '\0'){
+     a[i]='\0';
+   }
+   return *this;
 }
 
 void string::operator=(const char* s){
@@ -100,6 +128,28 @@ void string::operator=(const char* s){
 
   cout<<i<<endl;
 }
+
+//string& string::operator+(const string& str, char c){
+  //delete a;
+//  size_t lstr = str.length();
+//  size_t lc = sizeof(c)
+//  size_t l = lstr + lc;
+//  a = new char[l];
+//  int i = 0;
+//  int j = 0;
+//  while (i<= l){
+//    a[i]= str.a[i];
+//    i++;
+//  }
+//  while (j<= lc){
+  //  a[i+j] = c[j];
+//    j++;
+//  }
+//  a[l]= '\0';
+//  return this*;
+//}
+
+
 
 //-----------
 //Destructor
@@ -119,6 +169,6 @@ string::~string(){
 //	  return(true);
 //	}
 //	else {
-	//	return(false);
-	//}
+//		return(false);
+//	}
 //}

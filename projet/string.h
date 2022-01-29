@@ -1,6 +1,8 @@
 //
 // Created by emilie on 1/10/22.
 //
+#include <cstddef>
+
 
 class string{
   public :
@@ -8,33 +10,37 @@ class string{
 
     char* geta();
 
-    //int getlen();
+  //int getlen();
 
     string (const char* a); //Constructor from a c-string
-    //string(const string &a); // copy constructor
+    string(const string &str); // copy constructor
 
     ~string(); //destructor
 
-    int length(); //fonction renvoyant la longueur de la chaîne
+    const char* c_str();
+
+    size_t length() const; //fonction renvoyant la longueur de la chaîne
 
     int maxsize();
 
     char* resize(int size_t, char c);
 
-    void operator=(const string&); // Est-ce vraiment nécessaire? Cet opérateur le fait déjà
+    string& operator=(const string&); // Est-ce vraiment nécessaire? Cet opérateur le fait déjà
 
     void operator=(const char*);
+
+    //~string();
 
 
     bool empty() const;
 
 
-    //operator+(const string&, char)
+  //  string& operator+(const string& str, char c);
 
   protected:
     char a_[100]; // Tu l'utilises pas?
     char* a;
-    int len;
+    //int len;
 
 
 };
