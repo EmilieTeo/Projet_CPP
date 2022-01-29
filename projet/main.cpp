@@ -30,6 +30,9 @@ int main() {
 //  cout<<"e : " <<e.geta()<<endl;
 
     cout << "The size of the string is : " << d.size() << " bytes." << endl;
+    d.clear();
+    cout << "d: " <<d.geta() << endl;
+
 
 //  cout << "Is the string d empty ? " << d.empty() << endl;
 

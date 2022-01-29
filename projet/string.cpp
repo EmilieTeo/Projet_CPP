@@ -16,7 +16,7 @@ string::string() {      // Default Constructor
 
 
 string::string(const string &str){      //Copy constructor
-//    len = str.len;
+  len = str.length();
   //delete a;
   int i = 0;
   size_t l = str.length();
@@ -45,6 +45,11 @@ int string::size() const{           // size()
 }
 
 
+void string::clear(){
+    this -> len = 0;
+    this -> a[0] = '\0';
+}
+
 
 string::string(const char* str){
   a = new char[10];
@@ -61,9 +66,9 @@ char* string::geta(){
   return this -> a;
 }
 
-//int string::getlen(){
-//  return this->len;
-//}
+int string::getlen(){
+  return this->len;
+}
 
 
 size_t string::length() const{
