@@ -2,6 +2,7 @@
 # include <string>
 # include "string.h"
 
+
 using std::cout;
 using std::endl;
 
@@ -32,6 +33,10 @@ int main() {
     cout << "The size of the string is : " << d.size() << " bytes." << endl;
     d.clear();
     cout << "d: " <<d.geta() << endl;
+
+    string h;
+    h = 'z';
+    cout << h.c_str() << endl;
 
 
 //  cout << "Is the string d empty ? " << d.empty() << endl;

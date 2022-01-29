@@ -146,6 +146,18 @@ void string::operator=(const char* s){
   cout<<i<<endl;
 }
 
+string& string::operator=(char c){
+    if (this -> len !=1){
+        delete[] a;
+    }
+    len =1;
+    a = new char [len+1];
+    a[1] = '\0';
+    a[0] = c;
+
+    return *this;
+}
+
 //string& string::operator+(const string& str, char c){
   //delete a;
 //  size_t lstr = str.length();

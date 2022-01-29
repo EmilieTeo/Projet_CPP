@@ -27,6 +27,7 @@ class string{
     char* resize(int size_t, char c);
 
     string& operator=(const string&); // Est-ce vraiment nécessaire? Cet opérateur le fait déjà
+    string& operator=(char c);
 
     void operator=(const char*);
 
