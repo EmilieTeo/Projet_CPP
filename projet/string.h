@@ -8,6 +8,8 @@ class string{
 
     char* geta();
 
+    //int getlen();
+
     string (const char* a); //Constructor from a c-string
     //string(const string &a); // copy constructor
 
@@ -23,8 +25,6 @@ class string{
 
     void operator=(const char*);
 
-    ~string();
-
 
     bool empty() const;
 
@@ -34,6 +34,7 @@ class string{
   protected:
     char a_[100]; // Tu l'utilises pas?
     char* a;
+    int len;
 
 
 };

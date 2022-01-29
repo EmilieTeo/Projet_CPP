@@ -42,17 +42,21 @@ int main() {
   string e (r);
   string f (t);
 
+  cout<<"d :"<<endl;
   displayStringCharacteristics(d, -1);
+  cout<<"e :"<<endl;
   displayStringCharacteristics(e, 8);
+  cout<<"f :"<<endl;
   displayStringCharacteristics(f, -1);
 
   e = d;
+  cout<<"e :"<<endl;
   displayStringCharacteristics(e, -1);
 
   string c (d.geta());
   displayStringCharacteristics(c, -1);
 
-  cout << "Is the string d empty ? " << d.empty() << endl;
+//  cout << "Is the string d empty ? " << d.empty() << endl;
 
   return 0;
 }

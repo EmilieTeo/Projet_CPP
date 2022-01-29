@@ -27,17 +27,17 @@ char* string::geta(){
   return this -> a;
 }
 
-string::~string(){}
+//int string::getlen(){
+//  return this->len;
+//}
+
 
 int string::length(){
   int len = 0;
   int i = 0;
 
   while (this->a[i]!='\0'){ // != null
-    if(a[i]!=(char)0){ // Keskecé
-      len++;
-    }
-
+    len++;
     i++;
   }
   return len;
@@ -75,15 +75,15 @@ char* string::resize(int size_t, char c){
 }
 
 void string::operator=(const string& str){
-//   string temp = str;
-//   int i = 0;
-//   int l = temp.length();
+   string news = str;
+   int i = 0;
+   int l = news.length();
 
-//   while (i<l) {
-//    char* lettre = temp.geta();
-//    this->a[i] = lettre[i];
-//    i++;
-//   }
+   while (i<l) {
+    char* lettre = news.geta();
+    this->a[i] = lettre[i];
+    i++;
+   }
 }
 
 void string::operator=(const char* s){
@@ -114,11 +114,11 @@ string::~string(){
 //Methods
 //--------
 
-bool string::empty() const{   //empty(), test if string is empty
-	if (size()==0){
-	  return(true);
-	}
-	else {
-		return(false);
-	}
-}
+//bool string::empty() const{   //empty(), test if string is empty
+//	if (size()==0){
+//	  return(true);
+//	}
+//	else {
+	//	return(false);
+	//}
+//}
