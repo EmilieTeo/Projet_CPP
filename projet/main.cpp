@@ -29,7 +29,7 @@ int main() {
 //  e = d+r;
 //  cout<<"e : " <<e.geta()<<endl;
 
-
+    cout << "The size of the string is : " << d.size() << " bytes." << endl;
 
 //  cout << "Is the string d empty ? " << d.empty() << endl;
 

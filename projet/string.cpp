@@ -5,7 +5,6 @@
 #include "string.h"
 #include <cstring>
 #include <iostream>
-#include <cstddef>
 
 using std::cout;
 using std::endl;
@@ -18,7 +17,7 @@ string::string() {      // Default Constructor
 
 string::string(const string &str){      //Copy constructor
 //    len = str.len;
-  delete a;
+  //delete a;
   int i = 0;
   size_t l = str.length();
   a = new char[l];
@@ -33,6 +32,19 @@ string::string(const string &str){      //Copy constructor
 const char* string::c_str(){        // c_str()
     return a;
 }
+
+int string::size() const{           // size()
+    int size = 0;
+    int i = 0;
+
+    while (this->a[i]!='\0'){ // != null
+        size++;
+        i++;
+    }
+    return size;
+}
+
+
 
 string::string(const char* str){
   a = new char[10];

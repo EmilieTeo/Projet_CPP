@@ -18,6 +18,7 @@ class string{
     ~string(); //destructor
 
     const char* c_str();
+    int size() const;
 
     size_t length() const; //fonction renvoyant la longueur de la chaîne
 
