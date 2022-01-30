@@ -28,6 +28,10 @@ string::string(const string &str){      //Copy constructor
   a[i] = '\0';
 }
 
+string::~string(){    //destructor
+	delete [] a;
+}
+
 
 const char* string::c_str(){        // c_str()
     return a;
@@ -181,24 +185,22 @@ string& string::operator=(char c){
 
 
 
-//-----------
-//Destructor
-//-----------
 
-string::~string(){
-	delete [] a;
-}
+
+
 
 
 //--------
 //Methods
 //--------
 
-//bool string::empty() const{   //empty(), test if string is empty
-//	if (size()==0){
-//	  return(true);
-//	}
-//	else {
-//		return(false);
-//	}
-//}
+bool string::empty() const{   //empty()
+	bool res;
+	if (size()==0){
+	  res=true;    //1 if true
+	}
+	else {
+		res=false;   //0 if false
+	}
+	return res;
+}
