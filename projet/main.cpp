@@ -40,9 +40,16 @@ int main() {
     cout << h.c_str() << endl;
 
     /***Test operator + (const string&,const char*)***/
+    std::cout<<"Test of operator + (const string&,const char*)"<<std::endl;
     std::string w("Hello");
     char y[] = {' ', 'b','o','n','j','o','u','r','\0'};
     cout << w+y << endl;
+
+    /***Test operator = (const char*)***/
+    std::cout<<"Test of operator = (const char*)"<<std::endl;
+    char const * k = "Hello world";
+	  string K = k;
+	  std::cout<<K.c_str()<<std::endl;
 
 
 

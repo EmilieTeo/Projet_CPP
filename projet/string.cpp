@@ -135,20 +135,26 @@ string& string::operator=(const string& str){
    return *this;
 }
 
-void string::operator=(const char* s){
-  int i =0;
+string string::operator=(const char* s){    //operator = char*
 
-  while (i<sizeof(s)){ // attention, sizeof(char* array) renvoie la taille de l'adresse de a, donc 4 octets en général
-   this->a[i] = s[i];
-   i++;
+  if(a != nullptr){
+    delete [] a;
   }
 
-  if(a[i]!='\0'){
-    a[i]='\0';
+  int size_s = string(s).length();
+  if(size_s > 0){                           //&& <= maxsize
+    a = new char [size_s+1];
+    for (int i = 0 ; i<=size_s+1 ; i++){
+      a[i] = s[i];
+    }
   }
-
-  cout<<i<<endl;
+  else{
+    a = nullptr;
+  }
+  return *this;
 }
+
+
 
 string& string::operator=(char c){
     if (this -> len !=1){

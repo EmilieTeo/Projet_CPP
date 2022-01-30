@@ -36,7 +36,7 @@ class string{
 
 
 
-    void operator=(const char*);
+    string operator=(const char*); //operator = char*
 
 
 
@@ -75,4 +75,3 @@ class string{
 
     }
 };
-
