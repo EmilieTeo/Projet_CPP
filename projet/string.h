@@ -29,6 +29,8 @@ class string{
     string& operator=(const string&); // Est-ce vraiment nécessaire? Cet opérateur le fait déjà
     string& operator=(char c);
 
+
+
     void operator=(const char*);
 
     //~string();
@@ -44,5 +46,30 @@ class string{
     char* a;
     int len;
 
+  string& operator+(const char* pc){
+      int lenChar = 0;
+      while (pc[lenChar] != '\0'){
+          lenChar++;
+      }
 
+      string newString;
+      int lenTot = this -> len + lenChar;
+      newString.a = new char[lenTot+1]();
+      int i=0;
+      while(i < lenTot){
+          if (i < this->len){
+              newString.a[i] = a[i];
+          }
+          else{
+              newString.a[i] = pc[i-this->len];
+          }
+          i++;
+      }
+      newString.len = lenTot;
+      newString.a[lenTot] = '\0';
+      return *new string(newString);
+
+
+    }
 };
+

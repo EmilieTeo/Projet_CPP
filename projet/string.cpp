@@ -158,6 +158,7 @@ string& string::operator=(char c){
     return *this;
 }
 
+
 //string& string::operator+(const string& str, char c){
   //delete a;
 //  size_t lstr = str.length();

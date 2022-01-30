@@ -38,6 +38,10 @@ int main() {
     h = 'z';
     cout << h.c_str() << endl;
 
+    /***Test operator + (const string&,const char*)***/
+    std::string w("Hello");
+    char y[] = {' ', 'b','o','n','j','o','u','r','\0'};
+    cout << w+y << endl;
 
 //  cout << "Is the string d empty ? " << d.empty() << endl;
 
