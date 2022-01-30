@@ -27,7 +27,7 @@ class string{
 
     size_t length() const; //fonction renvoyant la longueur de la chaîne
 
-    int maxsize();
+    size_t maxsize() const;
 
     char* resize(int size_t, char c);
 

@@ -87,8 +87,14 @@ size_t string::length() const{
 }
 
 
-int string::maxsize(){
-  return sizeof(this->a); // attention, sizeof(char* array) renvoie la taille de l'adresse de a, donc 4 octets
+//int string::maxsize(){
+//  return sizeof(this->a); // attention, sizeof(char* array) renvoie la taille de l'adresse de a, donc 4 octets
+//}
+
+
+size_t string::maxsize() const{
+  size_t  max_size = 100;          //valeur de max_size constante choisie arbitrairement
+	return max_size;
 }
 
 char* string::resize(int size_t, char c){
@@ -142,7 +148,7 @@ string string::operator=(const char* s){    //operator = char*
   }
 
   int size_s = string(s).length();
-  if(size_s > 0){                           //&& <= maxsize
+  if(size_s > 0 && size_s<=string(s).maxsize()){
     a = new char [size_s+1];
     for (int i = 0 ; i<=size_s+1 ; i++){
       a[i] = s[i];
