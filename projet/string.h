@@ -33,10 +33,9 @@ class string{
 
     string& operator=(const string&); // Est-ce vraiment nécessaire? Cet opérateur le fait déjà
     string& operator=(char c);
-
-
-
     string operator=(const char*); //operator = char*
+
+    friend string operator+ (const string& s1, const string& s2); 
 
 
 
@@ -48,6 +47,7 @@ class string{
     char a_[100]; // Tu l'utilises pas?
     char* a;
     int len;
+    static const size_t max_size = 100;
 
   string& operator+(const char* pc){
       int lenChar = 0;

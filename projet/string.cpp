@@ -93,8 +93,7 @@ size_t string::length() const{
 
 
 size_t string::maxsize() const{
-  size_t  max_size = 100;          //valeur de max_size constante choisie arbitrairement
-	return max_size;
+	return max_size;                  //variable max_size statique choisie arbitrairement (dans string.h)
 }
 
 char* string::resize(int size_t, char c){
@@ -174,6 +173,21 @@ string& string::operator=(char c){
     return *this;
 }
 
+
+string operator+(const string& s1, const string& s2) {
+  //if(s1.size()+s2.size()>s1.maxsize()){
+  char* chaine=new char[s1.size()+s2.size() +1];
+
+  for(int i=0; i<s1.size(); ++i){
+    chaine[i]=s1.a_[i];
+  }
+  for(int j=0; j<=s2.size();++j){
+    chaine[j+s1.size()]=s2.a_[j];
+  }
+  string concatenate (chaine);
+  return chaine;
+
+}
 
 //string& string::operator+(const string& str, char c){
   //delete a;

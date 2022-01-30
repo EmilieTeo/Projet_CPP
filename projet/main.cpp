@@ -45,6 +45,11 @@ int main() {
     char y[] = {' ', 'b','o','n','j','o','u','r','\0'};
     cout << w+y << endl;
 
+    /***Test operator + (const string&, const string&)***/
+    std::cout<<"Test operator + (const string&, const string&)"<<std::endl;
+    std::cout <<w+w<< std::endl;
+
+
     /***Test operator = (const char*)***/
     std::cout<<"Test of operator = (const char*)"<<std::endl;
     char const * k = "Hello world";
