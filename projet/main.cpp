@@ -30,7 +30,8 @@ int main() {
 //  e = d+r;
 //  cout<<"e : " <<e.geta()<<endl;
 
-    cout << "The size of the string is : " << d.size() << " bytes." << endl;
+    cout << "The size of the string is : " << d.size() << " bytes." << endl;    //test of size()
+    cout << "Is the string d empty ? " << d.empty() << endl;                    //test of empty()
     d.clear();
     cout << "d: " <<d.geta() << endl;
 
@@ -39,7 +40,7 @@ int main() {
     cout << h.c_str() << endl;
 
 
-//  cout << "Is the string d empty ? " << d.empty() << endl;
+
 
   return 0;
 }

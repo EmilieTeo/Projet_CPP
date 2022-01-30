@@ -193,11 +193,13 @@ string::~string(){
 //Methods
 //--------
 
-//bool string::empty() const{   //empty(), test if string is empty
-//	if (size()==0){
-//	  return(true);
-//	}
-//	else {
-//		return(false);
-//	}
-//}
+bool string::empty() const{   //empty()
+	bool res;
+	if (size()==0){
+	  res=true;    //1 if true
+	}
+	else {
+		res=false;   //0 if false
+	}
+	return res;
+}
