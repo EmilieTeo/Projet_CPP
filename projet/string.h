@@ -1,59 +1,56 @@
-//
-// Created by emilie on 1/10/22.
-//
 #include <cstddef>
 
 
 class string{
   public :
-    string(); //default constructor
-    string (const char* a); //Constructor from a c-string
-    string(const string &str); // copy constructor
 
-    ~string(); //destructor
+    //CONSTRUCTORS
+    string();                   //Default constructor
+    string (const char* a);     //Constructor from a c-string
+    string(const string &str);  //Copy constructor
 
-    const char* c_str();
-    size_t size() const;
-    void clear();
+    //DESTRUCTOR
+    ~string();
 
-    bool empty() const;
+    //METHODS
+    size_t size() const;                  //Return length of string
+    void clear();                         //Clear string
+    bool empty() const;                   //Test if string is empty
+    size_t length() const;                //Return length of string
+    size_t maxsize() const;               //Return maximum size of string
+    void reserve(size_t n);               //Request a change in capacity
+    char* resize(int size_t, char c);     //Resize string
+    const char* c_str();                  //Get C string equivalent
+    char* geta();
+    int getlen();
 
-    size_t length() const; //fonction renvoyant la longueur de la chaîne
-
-    size_t maxsize() const;
-
-    void reserve(size_t n);
-
-    char* resize(int size_t, char c);
-
+    //OPERATORS =
     string& operator=(const string&);
     string& operator=(char c);
-    string operator=(const char*); //operator = char*
+    string operator=(const char*);
 
+    //OPERATORS +
     friend string operator+ (const string& s1, const string& s2);
-    friend string operator+(const string& stra, const char* pc);
     friend string operator+(const string& str, char c);
-    inline size_t capacity() const; //getter capacity
+    friend string operator+(const string& stra, const char* pc);
 
-
+    //GETTERS
+    inline size_t capacity() const;
 
 
   protected:
+    //ATTRIBUTS
+    char a_[100];
     char* a;
     int len;
-    size_t capacity_; //attribut capacity
+    size_t capacity_;
     static const size_t max_size = 100;
+
 
 
 };
 
-inline size_t string::capacity() const { //getter capacity
+//GETTERS
+inline size_t string::capacity() const {
 	return capacity_;
 }
-
-
-// A CHANGER ?
-// - size de type size_t
-// - normal que capacity dans le .h ?
-// - Capacity dans constructor from cstring
-// - Attention d'utiliser a et pas a_
