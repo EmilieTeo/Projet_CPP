@@ -200,6 +200,26 @@ string& string::operator=(char c){
     return *this;
 }
 
+string operator+(const string& stra, const char* pc){
+    int lenTot = stra.size() + strlen(pc);
+    char* newString = new char [lenTot + 1];
+
+    int i=0;
+    while(i < lenTot){
+        if (i < stra.size()){
+            newString[i] = stra.a_[i];
+        }
+        else{
+            newString[i] = pc[i-stra.size()];
+        }
+        i++;
+    }
+
+    string concatenate (newString);
+    return newString;
+
+}
+
 
 string operator+(const string& s1, const string& s2) {
   //if(s1.size()+s2.size()>s1.maxsize()){

@@ -38,7 +38,7 @@ class string{
     string operator=(const char*); //operator = char*
 
     friend string operator+ (const string& s1, const string& s2);
-
+    friend string operator+(const string& stra, const char* pc);
     inline size_t capacity() const; //getter capacity
 
 
@@ -52,31 +52,7 @@ class string{
     size_t capacity_; //attribut capacity
     static const size_t max_size = 100;
 
-  string& operator+(const char* pc){
-      int lenChar = 0;
-      while (pc[lenChar] != '\0'){
-          lenChar++;
-      }
 
-      string newString;
-      int lenTot = this -> len + lenChar;
-      newString.a = new char[lenTot+1]();
-      int i=0;
-      while(i < lenTot){
-          if (i < this->len){
-              newString.a[i] = a[i];
-          }
-          else{
-              newString.a[i] = pc[i-this->len];
-          }
-          i++;
-      }
-      newString.len = lenTot;
-      newString.a[lenTot] = '\0';
-      return *new string(newString);
-
-
-    }
 };
 
 inline size_t string::capacity() const { //getter capacity

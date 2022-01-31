@@ -45,11 +45,10 @@ int main() {
 
 
 
-
     /***Test operator + (const string&,const char*)***/
     std::cout<<"Test of operator + (const string&,const char*)"<<std::endl;
     std::string w("Hello");
-    char y[] = {' ', 'b','o','n','j','o','u','r','\0'};
+    const char* y = ", bonjour\0";
     cout << w+y << endl;
 
     /***Test operator + (const string&, const string&)***/
