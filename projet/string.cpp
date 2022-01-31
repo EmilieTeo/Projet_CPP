@@ -11,12 +11,14 @@ using std::endl;
 
 string::string() {      // Default Constructor
   a=nullptr;
+  capacity_=0;
 
 }
 
 
 string::string(const string &str){      //Copy constructor
   len = str.length();
+  capacity_=str.capacity();
   //delete a;
   int i = 0;
   size_t l = str.length();
@@ -54,6 +56,16 @@ void string::clear(){
     this -> a[0] = '\0';
 }
 
+bool string::empty() const{   //empty()
+	bool res;
+	if (size()==0){
+	  res=true;    //1 if true
+	}
+	else {
+		res=false;   //0 if false
+	}
+	return res;
+}
 
 string::string(const char* str){
   a = new char[10];
@@ -122,6 +134,21 @@ char* string::resize(int size_t, char c){
   return this->a;
 
 }
+
+
+void string::reserve(std::size_t n){
+  if(n>capacity_){
+    char* res= a;
+    a= new char [n+1];
+    capacity_=n;
+    for (size_t i=0; i<=n;++i){
+        a[i]=res[i];
+    }
+    delete [] res;
+
+  }
+}
+
 
 string& string::operator=(const string& str){
 //   delete a;
@@ -208,25 +235,3 @@ string operator+(const string& s1, const string& s2) {
 //  a[l]= '\0';
 //  return this*;
 //}
-
-
-
-
-
-
-
-
-//--------
-//Methods
-//--------
-
-bool string::empty() const{   //empty()
-	bool res;
-	if (size()==0){
-	  res=true;    //1 if true
-	}
-	else {
-		res=false;   //0 if false
-	}
-	return res;
-}

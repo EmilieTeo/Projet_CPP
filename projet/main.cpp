@@ -32,12 +32,19 @@ int main() {
 
     cout << "The size of the string is : " << d.size() << " bytes." << endl;    //test of size()
     cout << "Is the string d empty ? " << d.empty() << endl;                    //test of empty()
+    d.reserve(20);
+    cout<<"Test of reserve:"<<endl;
+    cout<<(d.capacity()==20)<<std::endl; 
     d.clear();
     cout << "d: " <<d.geta() << endl;
 
     string h;
     h = 'z';
     cout << h.c_str() << endl;
+
+
+
+
 
     /***Test operator + (const string&,const char*)***/
     std::cout<<"Test of operator + (const string&,const char*)"<<std::endl;
