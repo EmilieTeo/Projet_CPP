@@ -11,37 +11,46 @@ using std::endl;
 
 /** Main */
 int main() {
-  string b;
-  char s[] = {'H','e','l','l','o','H','e','l','l','o','\0'}; //si pas de /0 à la fin pb de taille du tableau
+
+  char s[] = {"Hello"}; 
   char r[] = {'S','a','l','u','t','\0'};
   char t[] = {"Bonjour"};
 
+  // Test des constructeurs
+  cout << "Test du constructeur par défaut :" <<endl;
+  string b;
+  //cout << "b :"<< b.c_str()<< endl;
 
+  cout << "Test du constructor from c-string:" <<endl;
   string d (s);
-  string e (r);
-  string f (t);
-  string g (f);
+  cout<<"d : " <<d.c_str()<<endl;
 
-  cout<<"d : " <<d.geta()<<endl;
-  e = d;
-  cout<<"e : " <<e.geta()<<endl;
-  cout << "g : "<<g.geta()<<endl;
+  string e (d);
+  cout << "Test du copy constructor :" <<endl;
+  cout<<"e :"<<e.c_str()<<endl;
 
-//  e = d+r;
-//  cout<<"e : " <<e.geta()<<endl;
+
+  //Test des fonctions
 
     cout << "The size of the string is : " << d.size() << " bytes." << endl;    //test of size()
+    cout << "The length of the string is : " << d.length() << " bytes." << endl;    //test of size()
     cout << "Is the string d empty ? " << d.empty() << endl;                    //test of empty()
     d.reserve(20);
     cout<<"Test of reserve:"<<endl;
-    cout<<(d.capacity()==20)<<std::endl; 
+    cout<<(d.capacity()==20)<<std::endl;
     d.clear();
-    cout << "d: " <<d.geta() << endl;
+    cout<<"Test of clear :"<<endl;
+    cout << "d: " <<d.c_str() << endl;
+    cout<< "Test of maxsize :"<<endl;
+    cout<< d.maxsize()<< endl;
+    cout<< "Test of resize : "<< endl;
+    e.resize(8, 'O');
+    cout<<e.c_str()<<endl;
 
     string h;
     h = 'z';
+    cout << "Test de c-string :"<<endl;
     cout << h.c_str() << endl;
-
 
 
 
@@ -55,12 +64,28 @@ int main() {
     std::cout<<"Test operator + (const string&, const string&)"<<std::endl;
     std::cout <<w+w<< std::endl;
 
+    /***Test operator + (const string&, char)***/
+    cout<<"Test operator + (const string&, char)"<<endl;
+    char c = 'O' ;
+    cout<<w+c<<endl;
+
 
     /***Test operator = (const char*)***/
     std::cout<<"Test of operator = (const char*)"<<std::endl;
     char const * k = "Hello world";
 	  string K = k;
 	  std::cout<<K.c_str()<<std::endl;
+
+    /***Test operator=(char c)***/
+    std::cout<<"Test of operator=(char c)"<<std::endl;
+    K = c;
+    std::cout<<K.c_str()<<std::endl;
+
+    /***operator=(const string& str)***/
+    std::cout<<"Test of operator=(char c)"<<std::endl;
+    K = e;
+    //  cout<<"e : " <<e.c_str()<<endl;
+    std::cout<<K.c_str()<<std::endl;
 
 
 

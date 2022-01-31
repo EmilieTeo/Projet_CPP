@@ -19,15 +19,26 @@ string::string() {      // Default Constructor
 string::string(const string &str){      //Copy constructor
   len = str.length();
   capacity_=str.capacity();
-  //delete a;
   int i = 0;
   size_t l = str.length();
   a = new char[l];
-  while (i < l){
+  while (i < l && i< max_size){
     a[i] = str.a[i];
     i++;
   }
   a[i] = '\0';
+}
+
+string::string(const char* str){      //Constructor from c-string
+  a = new char[sizeof(str)];
+  capacity_= sizeof(str);
+  int i=0;
+  while (str[i]!='\0' && i< max_size){
+    i+=1;
+  }
+  int size=i;
+  memcpy(a,str, size);
+  this->a[size]='\0';
 }
 
 string::~string(){    //destructor
@@ -39,7 +50,7 @@ const char* string::c_str(){        // c_str()
     return a;
 }
 
-int string::size() const{           // size()
+size_t string::size() const{           // size()
     int size = 0;
     int i = 0;
 
@@ -51,7 +62,7 @@ int string::size() const{           // size()
 }
 
 
-void string::clear(){
+void string::clear(){     // clear
     this -> len = 0;
     this -> a[0] = '\0';
 }
@@ -67,27 +78,8 @@ bool string::empty() const{   //empty()
 	return res;
 }
 
-string::string(const char* str){
-  a = new char[10];
-  int i=0;
-  while (str[i]!='\0'){
-    i+=1;
-  }
-  int size=i;
-  memcpy(a,str, size);
-  this->a[size]='\0';
-}
 
-char* string::geta(){
-  return this -> a;
-}
-
-int string::getlen(){
-  return this->len;
-}
-
-
-size_t string::length() const{
+size_t string::length() const{      //length
   int len = 0;
   int i = 0;
 
@@ -99,9 +91,6 @@ size_t string::length() const{
 }
 
 
-//int string::maxsize(){
-//  return sizeof(this->a); // attention, sizeof(char* array) renvoie la taille de l'adresse de a, donc 4 octets
-//}
 
 
 size_t string::maxsize() const{
@@ -110,7 +99,6 @@ size_t string::maxsize() const{
 
 char* string::resize(int size_t, char c){
   int sizeinit = this->length();
-  cout << "Initial size : " << sizeinit << endl;
   int i = 0;
 
   if(size_t< sizeinit){
@@ -118,18 +106,12 @@ char* string::resize(int size_t, char c){
 
   } else {
 
-    while (i<(size_t-sizeinit)){
+    while (i<(size_t-sizeinit) && (i+sizeinit)<max_size){
       this->a[i+sizeinit]= c;
-      cout<< i+sizeinit << " -> " << this->a[sizeinit+i] << endl;
       i++;
     }
-
-    if (this->a[i+sizeinit]!= '\0'){
-      this->a[i+sizeinit]= '\0';
+    this->a[i+sizeinit]= '\0';
     }
-
-    cout << "Final size : " << this->length() << endl;
-  }
 
   return this->a;
 
@@ -137,7 +119,7 @@ char* string::resize(int size_t, char c){
 
 
 void string::reserve(std::size_t n){
-  if(n>capacity_){
+  if(n>capacity_ && n< max_size){
     char* res= a;
     a= new char [n+1];
     capacity_=n;
@@ -150,20 +132,19 @@ void string::reserve(std::size_t n){
 }
 
 
+// Operators
+
 string& string::operator=(const string& str){
-//   delete a;
-//   string news = str;
+
    int i = 0;
    size_t l = str.length();
-//   a = new char[l];
-   while (i<=l) {
+   while (i<=l && i< max_size) {
     char lettre = str.a[i];
     a[i]= lettre;
     i++;
    }
-   if(a[i]!= '\0'){
-     a[i]='\0';
-   }
+    a[i]='\0';
+
    return *this;
 }
 
@@ -205,16 +186,16 @@ string operator+(const string& stra, const char* pc){
     char* newString = new char [lenTot + 1];
 
     int i=0;
-    while(i < lenTot){
+    while(i < lenTot && i< stra.max_size){
         if (i < stra.size()){
-            newString[i] = stra.a_[i];
+            newString[i] = stra.a[i];
         }
         else{
             newString[i] = pc[i-stra.size()];
         }
         i++;
     }
-
+    newString[i]='\0';
     string concatenate (newString);
     return newString;
 
@@ -222,36 +203,34 @@ string operator+(const string& stra, const char* pc){
 
 
 string operator+(const string& s1, const string& s2) {
-  //if(s1.size()+s2.size()>s1.maxsize()){
   char* chaine=new char[s1.size()+s2.size() +1];
-
-  for(int i=0; i<s1.size(); ++i){
-    chaine[i]=s1.a_[i];
+  if(s1.size()+s2.size()>s1.maxsize()){
+    for(int i=0; i<s1.size(); ++i){
+      chaine[i]=s1.a[i];
+    }
+    for(int j=0; j<=s2.size();++j){
+      chaine[j+s1.size()]=s2.a[j];
+    }
+    string concatenate (chaine);
   }
-  for(int j=0; j<=s2.size();++j){
-    chaine[j+s1.size()]=s2.a_[j];
-  }
-  string concatenate (chaine);
   return chaine;
 
 }
 
-//string& string::operator+(const string& str, char c){
-  //delete a;
-//  size_t lstr = str.length();
-//  size_t lc = sizeof(c)
-//  size_t l = lstr + lc;
-//  a = new char[l];
-//  int i = 0;
-//  int j = 0;
-//  while (i<= l){
-//    a[i]= str.a[i];
-//    i++;
-//  }
-//  while (j<= lc){
-  //  a[i+j] = c[j];
-//    j++;
-//  }
-//  a[l]= '\0';
-//  return this*;
-//}
+
+string operator+(const string& str, char c){
+    int l = str.size() + 1;
+    char* newS = new char [l + 1];
+
+    int i=0;
+    while(i < l && (i+1)< str.max_size){
+        newS[i] = str.a[i];
+        i++;
+    }
+    newS[i] = c;
+    newS[i+1] = '\0';
+
+    string concatenate (newS);
+    return newS;
+
+}
